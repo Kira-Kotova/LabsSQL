@@ -1,16 +1,30 @@
----------------------
-Create Procedure InsertCase (@articleId Int, @statusId Int, @content NVarChar(60), @startProcessDate DateTime, @endProcessDate DateTime null)
-As
-Declare @ID Int
-Select @ID = Max(c.ID)
-From [Case] c
-If @ID is null Set @ID = 1
-Else Set @ID = @ID + 1
 
-Begin 
-	Insert into [Case] (ID, ID_Article, ID_Status, Content, StartProcessDate, EndProcessDate) 
-	values (@ID, @articleId, @statusId, @content, @startProcessDate, @endProcessDate )
-End
+--Create Procedure InsertRecord (@CaseId Int, @employeeId Int, @convictedId Int null, @suspectedId Int null, @creationDate DateTime)
+--As
+--Declare @ID Int
+--Select @ID = Max(r.ID)
+--From Record r
+--If @ID is null Set @ID = 1
+--Else Set @ID = @ID + 1
+
+--Begin 
+--	Insert into Record(ID, ID_Case, ID_Employee, ID_Convicted, ID_Suspected, CreationDate)
+--	values (@ID, @CaseId, @employeeId, @convictedId, @suspectedId, @creationDate)
+--End
+
+---------------------
+--Create Procedure InsertCase (@articleId Int, @statusId Int, @content NVarChar(60), @startProcessDate DateTime, @endProcessDate DateTime null)
+--As
+--Declare @ID Int
+--Select @ID = Max(c.ID)
+--From [Case] c
+--If @ID is null Set @ID = 1
+--Else Set @ID = @ID + 1
+
+--Begin 
+--	Insert into [Case] (ID, ID_Article, ID_Status, Content, StartProcessDate, EndProcessDate) 
+--	values (@ID, @articleId, @statusId, @content, @startProcessDate, @endProcessDate )
+--End
 ------------------------
 --Create Procedure InsertEmployee (@personId Int, @rank NVarChar(20), @position NVarChar(20))
 --As

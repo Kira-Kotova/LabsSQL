@@ -40,9 +40,18 @@
 --	left join [Article] A on C.ID_Article = A.ID
 --left join [Status] S on C.ID_Status = S.ID
 -------------------------------------------
-Create view ConvList as
-Select  concat(P.LastName,' ', P.FirstName, ' ', isnull(P.MiddleName, '')) as 'ФИО Осуждённого',
-		(Case when DATEDIFF(YEAR,SYSDATETIME(),C.Term) > 200 then N'пожизненное'
-		else concat(DATEDIFF(YEAR,SYSDATETIME(),C.Term), ' лет')end) as 'Срок заключения'
+--Create view ConvList as
+--Select  concat(P.LastName,' ', P.FirstName, ' ', isnull(P.MiddleName, '')) as 'ФИО Осуждённого',
+--		(Case when DATEDIFF(YEAR,SYSDATETIME(),C.Term) > 200 then N'пожизненное'
+--		else concat(DATEDIFF(YEAR,SYSDATETIME(),C.Term), ' лет')end) as 'Срок заключения'
+--From Person as P
+-- join Convicted as C on P.ID = C.ID_Person
+-------------------------------------------
+Create view EmpList as
+Select  concat(P.LastName,' ', P.FirstName, ' ', isnull(P.MiddleName, '')) as 'ФИО Сотрудника',
+	p1.Position as 'Должность',
+	r1.[Rank] as 'Звание' 
 From Person as P
- join Convicted as C on P.ID = C.ID_Person
+join Employee E on P.ID = E.ID_Person
+left join Position p1 on E.ID_Position = p1.ID
+left join [Rank] r1 on E.ID_Rank = r1.ID
