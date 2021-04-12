@@ -1,4 +1,4 @@
---Create view RecordList as
+﻿--Create view RecordList as
 select  R.ID_Case as 'Номер Дела',
 		concat(P1.LastName,' ', isnull(P1.FirstName,'Отсутствует'), ' ', isnull(P1.MiddleName, '')) as 'ФИО следователя',
 		concat(P2.LastName,' ', isnull(P2.FirstName,'Отсутствует'), ' ', isnull(P2.MiddleName, '')) as 'ФИО осуждённого',
@@ -47,5 +47,13 @@ Select  concat(P.LastName,' ', P.FirstName, ' ', isnull(P.MiddleName, '')) as '�
 From Person as P
  join Convicted as C on P.ID = C.ID_Person
 
-
+-------------------------------
+Create view EmpList as
+Select  concat(P.LastName,' ', P.FirstName, ' ', isnull(P.MiddleName, '')) as 'ФИО Сотрудника',
+	r1.[Rank] as 'Должность', 
+	p1.Position as 'Звание'	
+From Person as P
+join Employee E on P.ID = E.ID_Person
+left join Position p1 on E.ID_Position = p1.ID
+left join [Rank] r1 on E.ID_Rank = r1.ID
 
