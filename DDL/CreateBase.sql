@@ -3,7 +3,7 @@ Create DataBase [Archive]
 Create Table [Article]
 (
 	ID Int Primary Key,
-	[ArticleNumber] Char(5) not null unique
+	[ArticleNumber] Char(5) not null unique,
 	[ArticleName] NVarChar(50) not null 
 )
 Create Table [Status]
@@ -72,12 +72,4 @@ Create Table [Record]
 	[ID_Suspected] Int Foreign Key References [Suspected](ID), 
 	[CreationDate] DateTime not null
 )
------Creating confines-----
-Alter Table Article
-	Add Constraint [checkZeroValue]
-	Check (ArticleNumber > 0)
-Alter Table Article
-	Add Constraint [checkMaxValue]
-	Check (ArticleNumber <= 361)
-
 
