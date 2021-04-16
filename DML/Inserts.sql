@@ -1,4 +1,4 @@
-
+﻿
 --Create Procedure InsertRecord (@CaseId Int, @employeeId Int, @convictedId Int null, @suspectedId Int null, @creationDate DateTime)
 --As
 --Declare @ID Int

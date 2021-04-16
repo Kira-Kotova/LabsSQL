@@ -1,22 +1,22 @@
-
+п»ї
 --Create Procedure GetPerson_In_ConvCaseList
 --	@Name NVarChar(50) 
 --As
---Select c1.[ФИО Осуждённого], c1.[Номер Дела]
+--Select c1.[Р¤РРћ РћСЃСѓР¶РґС‘РЅРЅРѕРіРѕ], c1.[РќРѕРјРµСЂ Р”РµР»Р°]
 --From ConvCaseList c1
---Where c1.[ФИО Осуждённого] Like '%'+@Name+'%'
+--Where c1.[Р¤РРћ РћСЃСѓР¶РґС‘РЅРЅРѕРіРѕ] Like '%'+@Name+'%'
 ----------------------------------------------
 --Create Procedure GetRecord_by_Name
 --	@Name nvarchar(50)
 --As
 --Select *
 --From RecordList r1
---Where r1.[ФИО следователя] like '%'+@Name+'%' 
---or r1.[ФИО осуждённого] like '%'+@Name+'%'
+--Where r1.[Р¤РРћ СЃР»РµРґРѕРІР°С‚РµР»СЏ] like '%'+@Name+'%' 
+--or r1.[Р¤РРћ РѕСЃСѓР¶РґС‘РЅРЅРѕРіРѕ] like '%'+@Name+'%'
 ----------------------------------------------
 --Create Procedure GetRecord_by_ID
 --	@ID nvarchar(30)
 --As
 --Select *
 --From RecordList r1
---Where r1.[Номер Дела] = @ID
+--Where r1.[РќРѕРјРµСЂ Р”РµР»Р°] = @ID

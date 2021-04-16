@@ -1,17 +1,17 @@
-Exec InsertRecord 10, 7, 8, null, '12.04.2021'
+п»їExec InsertRecord 10, 7, 8, null, '12.04.2021'
 
-Exec InsertCase 3, 2, N'Похищение с изнасилованием.', '04.05.2004', '30.09.2005'
+Exec InsertCase 3, 2, N'РџРѕС…РёС‰РµРЅРёРµ СЃ РёР·РЅР°СЃРёР»РѕРІР°РЅРёРµРј.', '04.05.2004', '30.09.2005'
 
-Exec InsertEmployee 16, N'Без звания', N'Следователь'
+Exec InsertEmployee 16, N'Р‘РµР· Р·РІР°РЅРёСЏ', N'РЎР»РµРґРѕРІР°С‚РµР»СЊ'
 
 Exec InsertConvicted 15,'30.08.2022'
 
-Exec InsertPerson N'male', N'Виктор', N'Мохов', N'Васильевич', '22.06.1950', N'РФ г.Скопин'
+Exec InsertPerson N'male', N'Р’РёРєС‚РѕСЂ', N'РњРѕС…РѕРІ', N'Р’Р°СЃРёР»СЊРµРІРёС‡', '22.06.1950', N'Р Р¤ Рі.РЎРєРѕРїРёРЅ'
 
 ------
 
-Exec GetPerson_In_ConvCaseList 'Пичушкин'
+Exec GetPerson_In_ConvCaseList 'РџРёС‡СѓС€РєРёРЅ'
 
-Exec GetRecord_by_Name 'Леоне'
+Exec GetRecord_by_Name 'Р›РµРѕРЅРµ'
 
 Exec GetRecord_by_ID 6

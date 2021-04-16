@@ -1,9 +1,9 @@
---Create view RecordList as
---select  R.ID_Case as 'Номер Дела',
---		concat(P1.LastName,' ', isnull(P1.FirstName,'Отсутствует'), ' ', isnull(P1.MiddleName, '')) as 'ФИО следователя',
---		concat(P2.LastName,' ', isnull(P2.FirstName,'Отсутствует'), ' ', isnull(P2.MiddleName, '')) as 'ФИО осуждённого',
---		concat(P3.LastName,' ', isnull(P3.FirstName,'Отсутствует'), ' ', isnull(P3.MiddleName, '')) as 'ФИО подозреваемого',
---		R.CreationDate as 'Дата создания записи'
+п»ї--Create view RecordList as
+--select  R.ID_Case as 'РќРѕРјРµСЂ Р”РµР»Р°',
+--		concat(P1.LastName,' ', isnull(P1.FirstName,'РћС‚СЃСѓС‚СЃС‚РІСѓРµС‚'), ' ', isnull(P1.MiddleName, '')) as 'Р¤РРћ СЃР»РµРґРѕРІР°С‚РµР»СЏ',
+--		concat(P2.LastName,' ', isnull(P2.FirstName,'РћС‚СЃСѓС‚СЃС‚РІСѓРµС‚'), ' ', isnull(P2.MiddleName, '')) as 'Р¤РРћ РѕСЃСѓР¶РґС‘РЅРЅРѕРіРѕ',
+--		concat(P3.LastName,' ', isnull(P3.FirstName,'РћС‚СЃСѓС‚СЃС‚РІСѓРµС‚'), ' ', isnull(P3.MiddleName, '')) as 'Р¤РРћ РїРѕРґРѕР·СЂРµРІР°РµРјРѕРіРѕ',
+--		R.CreationDate as 'Р”Р°С‚Р° СЃРѕР·РґР°РЅРёСЏ Р·Р°РїРёСЃРё'
 --from [Record] R
 --	left join [Employee] E on R.ID_Employee = E.ID
 --	left join [Person] P1 on E.ID_Person = P1.ID
@@ -13,44 +13,44 @@
 --	left join [Person] P3 on S.ID_Person = P3.ID
 -----------------------------------------
 --Create view ConvCaseList as
---Select concat(P.LastName,' ', P.FirstName, ' ', isnull(P.MiddleName, '')) as 'ФИО Осуждённого',
---		Record.ID_Case as 'Номер Дела'
+--Select concat(P.LastName,' ', P.FirstName, ' ', isnull(P.MiddleName, '')) as 'Р¤РРћ РћСЃСѓР¶РґС‘РЅРЅРѕРіРѕ',
+--		Record.ID_Case as 'РќРѕРјРµСЂ Р”РµР»Р°'
 --From [Record], [Person] as P
 --Inner join [Convicted] as C
 --on P.ID = C.ID_Person
 --Where Record.ID_Convicted = C.ID
 ------------------------------------------
 --Create view EmpCaseList as
---Select concat(P.LastName,' ', P.FirstName, ' ', isnull(P.MiddleName, '')) as 'ФИО Следователя',
---		Record.ID_Case as 'Номер Дела'
+--Select concat(P.LastName,' ', P.FirstName, ' ', isnull(P.MiddleName, '')) as 'Р¤РРћ РЎР»РµРґРѕРІР°С‚РµР»СЏ',
+--		Record.ID_Case as 'РќРѕРјРµСЂ Р”РµР»Р°'
 --From [Record], [Person] as P
 --Inner join [Employee] as E
 --on P.ID = E.ID_Person
 --Where Record.ID_Employee = E.ID and E.ID_Position = 2
 ------------------------------------------
 --Create view CaseList as
---Select  C.ID as 'Номер дела',
---		A.ArticleNumber as 'Номер статьи',
---		A.ArticleName as 'Содержание статьи',
---		S.[Status] as 'Статус дела',
---		C.Content as 'Содержание',
---		C.StartProcessDate as 'Дата создания дела',
---		C.EndProcessDate as 'Дата закрытия дела'
+--Select  C.ID as 'РќРѕРјРµСЂ РґРµР»Р°',
+--		A.ArticleNumber as 'РќРѕРјРµСЂ СЃС‚Р°С‚СЊРё',
+--		A.ArticleName as 'РЎРѕРґРµСЂР¶Р°РЅРёРµ СЃС‚Р°С‚СЊРё',
+--		S.[Status] as 'РЎС‚Р°С‚СѓСЃ РґРµР»Р°',
+--		C.Content as 'РЎРѕРґРµСЂР¶Р°РЅРёРµ',
+--		C.StartProcessDate as 'Р”Р°С‚Р° СЃРѕР·РґР°РЅРёСЏ РґРµР»Р°',
+--		C.EndProcessDate as 'Р”Р°С‚Р° Р·Р°РєСЂС‹С‚РёСЏ РґРµР»Р°'
 --From [Case] as C
 --	left join [Article] A on C.ID_Article = A.ID
 --left join [Status] S on C.ID_Status = S.ID
 -------------------------------------------
 --Create view ConvList as
---Select  concat(P.LastName,' ', P.FirstName, ' ', isnull(P.MiddleName, '')) as 'ФИО Осуждённого',
---		(Case when DATEDIFF(YEAR,SYSDATETIME(),C.Term) > 200 then N'пожизненное'
---		else concat(DATEDIFF(YEAR,SYSDATETIME(),C.Term), ' лет')end) as 'Срок заключения'
+--Select  concat(P.LastName,' ', P.FirstName, ' ', isnull(P.MiddleName, '')) as 'Р¤РРћ РћСЃСѓР¶РґС‘РЅРЅРѕРіРѕ',
+--		(Case when DATEDIFF(YEAR,SYSDATETIME(),C.Term) > 200 then N'РїРѕР¶РёР·РЅРµРЅРЅРѕРµ'
+--		else concat(DATEDIFF(YEAR,SYSDATETIME(),C.Term), ' Р»РµС‚')end) as 'РЎСЂРѕРє Р·Р°РєР»СЋС‡РµРЅРёСЏ'
 --From Person as P
 -- join Convicted as C on P.ID = C.ID_Person
 -------------------------------------------
 Create view EmpList as
-Select  concat(P.LastName,' ', P.FirstName, ' ', isnull(P.MiddleName, '')) as 'ФИО Сотрудника',
-	p1.Position as 'Должность',
-	r1.[Rank] as 'Звание' 
+Select  concat(P.LastName,' ', P.FirstName, ' ', isnull(P.MiddleName, '')) as 'Р¤РРћ РЎРѕС‚СЂСѓРґРЅРёРєР°',
+	p1.Position as 'Р”РѕР»Р¶РЅРѕСЃС‚СЊ',
+	r1.[Rank] as 'Р—РІР°РЅРёРµ' 
 From Person as P
 join Employee E on P.ID = E.ID_Person
 left join Position p1 on E.ID_Position = p1.ID

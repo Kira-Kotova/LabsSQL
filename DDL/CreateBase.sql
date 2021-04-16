@@ -1,4 +1,4 @@
-Create DataBase [Archive]
+﻿Create DataBase [Archive]
 -----Creating tables-----
 Create Table [Article]
 (
